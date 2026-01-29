@@ -1,0 +1,24 @@
+
+
+STM32CubeIDE V1.18.0          STM32CubeMX Included in CubeIDE
+https://www.st.com/en/development-tools/stm32cubeide.html
+
+
+ST-Link Drivers			ST-Link VCP and ST-Link Bridge
+https://www.st.com/en/development-tools/stsw-link009.html
+
+
+Proteus (Crack 2025)		Full circuit simulation with STM32
+https://filecr.com/windows/proteus/
+
+
+QEMU (STM32)				Open-source ARM emulation
+https://qemu.weilnetz.de/w64/qemu-w64-setup-20251224.exe
+
+
+Renode					Multi-node embedded simulation
+https://github.com/renode/renode
+
+
+STM32CubeProgrammer			Flash programming 
+https://www.st.com/en/development-tools/stm32cubeprog.html
