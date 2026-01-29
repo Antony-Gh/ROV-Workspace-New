@@ -1,0 +1,36 @@
+# Renode Script for STM32F405RGT6 ROV Firmware
+# Run with: renode test/renode/run.resc
+
+using sysbus
+
+# Set logging level
+logLevel -1
+
+# Create machine
+mach create "ROV_STM32"
+
+# Load platform description
+machine LoadPlatformDescription @test/renode/stm32f405_rov.repl
+
+# Show UART output in terminal
+showAnalyzer usart2
+showAnalyzer usart6
+
+# Load firmware (ELF file from Debug build)
+sysbus LoadELF @Debug/STM32F405RGT6.elf
+
+# Start emulation
+echo "================================"
+echo " ROV Firmware Emulation Started"
+echo " UART2: MAVLink output"
+echo " UART6: Debug output"
+echo "================================"
+echo ""
+echo "Commands:"
+echo "  start - start emulation"
+echo "  pause - pause emulation"
+echo "  quit  - exit Renode"
+echo ""
+
+# Auto-start (comment out if you want manual control)
+# start
