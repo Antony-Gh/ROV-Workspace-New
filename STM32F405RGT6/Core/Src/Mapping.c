@@ -1,5 +1,5 @@
 /**/
-#include "Maping.h"
+#include "Mapping.h"
 
 float r[N_T][3] = {
 		{ 0.30f,  0.20f,  0.00f},
