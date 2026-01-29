@@ -1,0 +1,89 @@
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.csproj.AssemblyReference.cache
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\ROV GUI Control.exe.config
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\ROV GUI Control.exe
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\ROV GUI Control.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\CommunityToolkit.Mvvm.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\HelixToolkit.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\HelixToolkit.Wpf.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\log4net.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Newtonsoft.Json.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Core.Drawing.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Wpf.Shared.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Renci.SshNet.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\SharpDX.DirectInput.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\SharpDX.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Buffers.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Drawing.Common.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Memory.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\CommunityToolkit.Mvvm.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\CommunityToolkit.Mvvm.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\HelixToolkit.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\HelixToolkit.Wpf.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\log4net.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\log4net.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Newtonsoft.Json.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Core.Drawing.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\OxyPlot.Wpf.Shared.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\Renci.SshNet.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\SharpDX.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\SharpDX.DirectInput.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\SharpDX.DirectInput.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Buffers.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Drawing.Common.pdb
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Drawing.Common.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Memory.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\TC\source\repos\ROV GUI Control\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\DepthGauge.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Gauge.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\MainWindow.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\Settings.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Compass.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\ConnectButton.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\CurrentGauge.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\DepthGauge.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\EnableButton.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Gauge.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Movement.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\PowerButton.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\ROV3DModel.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\SettingsButton.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\App.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control_MarkupCompile.cache
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control_MarkupCompile.lref
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\MainWindow.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\Settings.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Compass.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\ConnectButton.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\CurrentGauge.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\EnableButton.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\Movement.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\PowerButton.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\ROV3DModel.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\View\SettingsButton.baml
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.g.resources
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV_GUI_Control.Properties.Resources.resources
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.csproj.GenerateResource.cache
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.csproj.CoreCompileInputs.cache
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI .611323BF.Up2Date
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.exe
+C:\Users\TC\source\repos\ROV GUI Control\obj\Debug\ROV GUI Control.pdb

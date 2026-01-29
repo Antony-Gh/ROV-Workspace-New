@@ -1,0 +1,96 @@
+﻿<UserControl x:Name="DepthScaleGauge"
+             x:Class="ROV_GUI_Control.View.DepthGauge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Width="189" Height="189" Foreground="{x:Null}">
+    <Viewbox Stretch="Fill">
+        <Grid Width="189" Height="189" Margin="0">
+            <Grid Name="grid" Width="240" Height="1820" Margin="-25,-25,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Grid x:Name="DepthScale" Height="1820" Width="240" Margin="0" RenderTransformOrigin="0.5,0.065934065934066">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#04C0F5" Offset="0.06593406593"/>
+                            <GradientStop Color="#FFCA792D" Offset="0.065934"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <TranslateTransform x:Name="needle0"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                </Grid>
+                <Rectangle Width="4" Height="4" Fill="White" Margin="0,118,0,0" VerticalAlignment="Top" StrokeThickness="4"/>
+                <Ellipse Height="164" Margin="0,38,0,0" StrokeThickness="16" Width="164" Stroke="#FF003066" VerticalAlignment="Top"/>
+                <Grid Width="10" Height="20" VerticalAlignment="Top" Margin="0,35,0,0">
+                    <Polygon Points="0,0 5,10 10,0" Fill="Lime" Height="20" Margin="0" Width="10" VerticalAlignment="Top">
+                        <Polygon.Effect>
+                            <DropShadowEffect Color="Lime" 
+                          Direction="0" 
+                          ShadowDepth="0" 
+                          BlurRadius="5" />
+                        </Polygon.Effect>
+                    </Polygon>
+                </Grid>
+                <Grid x:Name="MillieScale" Height="164" Width="164" VerticalAlignment="Top" Margin="0,38,0,0" RenderTransformOrigin="0.5,0.5"/>
+                <Grid Width="164" Height="164" VerticalAlignment="Top" Margin="0,38,0,0">
+                    <Path Stroke="#7F78A9D4" StrokeThickness="16">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure StartPoint="29.67409819,29.67409818">
+                                    <ArcSegment Point="134.3259018,29.67409818" Size="74,74" RotationAngle="0"
+                                    IsLargeArc="True"/>
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>
+                <Ellipse Height="132" Margin="0,54,0,0" Width="132" StrokeThickness="2" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True" VerticalAlignment="Top">
+                    <Ellipse.Effect>
+                        <DropShadowEffect BlurRadius="11" Direction="90" Opacity="1" Color="#FF120B49"/>
+                    </Ellipse.Effect>
+                    <Ellipse.Stroke>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="-35" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#FFCED1DE" Offset="0.946"/>
+                            <GradientStop Color="#FF003066" Offset="0.236"/>
+                            <GradientStop Color="#FFCED1DE"/>
+                            <GradientStop Color="#FF003066" Offset="0.797"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Ellipse Height="179" Margin="0,31,0,0" StrokeThickness="8.5" Width="179" RenderTransformOrigin="0,0" VerticalAlignment="Top">
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF6A6161" Offset="1"/>
+                            <GradientStop Color="#FF060606" Offset="0.917"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Ellipse Height="189" Margin="-1,25.5,0,0" Width="189" StrokeThickness="8" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True" VerticalAlignment="Top">
+                    <Ellipse.Stroke>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF23292C" Offset="0.22"/>
+                            <GradientStop Color="#FF876F24"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Grid.Clip>
+                    <EllipseGeometry Center="119.5,120" RadiusX="93.5" RadiusY="93.5"/>
+                </Grid.Clip>
+            </Grid>
+           
+        </Grid>
+    </Viewbox>
+</UserControl>

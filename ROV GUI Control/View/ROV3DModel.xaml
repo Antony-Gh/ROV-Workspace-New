@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ROV_GUI_Control.View.ROV3DModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ROV_GUI_Control.View"
+             xmlns:h="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <h:HelixViewport3D x:Name="ROV3DView"
+                   ZoomExtentsWhenLoaded="True"
+                   ShowCoordinateSystem="True"
+                   ShowViewCube="True"
+                   Background="LightBlue">
+            <h:SunLight />
+        </h:HelixViewport3D>
+    </Grid>
+</UserControl>

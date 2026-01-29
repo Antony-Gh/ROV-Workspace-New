@@ -1,0 +1,6 @@
+../Core/Src/Control.c:28:6:IMUTask	40	static
+../Core/Src/Control.c:40:6:TPDTask	40	static
+../Core/Src/Control.c:52:6:PIDTask	88	static
+../Core/Src/Control.c:73:6:VPID	16	static
+../Core/Src/Control.c:82:6:build_allocation_matrix0	40	static
+../Core/Src/Control.c:86:6:System_Init	16	static

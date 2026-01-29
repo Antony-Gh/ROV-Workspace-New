@@ -1,0 +1,378 @@
+﻿<UserControl x:Class="ROV_GUI_Control.View.Movement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ROV_GUI_Control.View"
+             xmlns:converters="clr-namespace:ROV_GUI_Control.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:Forward x:Key="Forward"/>
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid Width="180" Height="180">
+            <Polygon Points="0,20 10,0 20,20 15,20 15,40 5,40 5,20 " HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="#FF0F2322"/>
+            <Polygon Points="5,0 15,0 15,20 20,20 10,40 0,20 5,20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stroke="#FF0F2322"/>
+            <Polygon Points="0,5 20,5 20,0 40,10 20,20 20,15 0,15" HorizontalAlignment="Right" VerticalAlignment="Center" Stroke="#FF0F2322"/>
+            <Polygon Points="0,10 20,0 20,5 40,5 40,15 20,15 20,20" HorizontalAlignment="Left" VerticalAlignment="Center" Stroke="#FF0F2322"/>
+            <Polygon Points="0,20 10,0 20,20 15,20 15,40 5,40 5,20 " HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Stroke="#FF0F2322">
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform X="55.355339059" Y="14.644660941"/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <Polygon Points="0,20 10,0 20,20 15,20 15,40 5,40 5,20 " HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Stroke="#FF0F2322">
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform Y="14.644660941" X="-55.355339059"/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <Polygon Points="5,0 15,0 15,20 20,20 10,40 0,20 5,20" HorizontalAlignment="Center" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Stroke="#FF0F2322">
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform X="55.355339059" Y="-14.644660941"/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <Polygon Points="5,0 15,0 15,20 20,20 10,40 0,20 5,20" HorizontalAlignment="Center" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Stroke="#FF0F2322">
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform X="-55.355339059" Y="-14.644660941"/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <Path x:Name="RRshadow" Stroke="#FF0F2322" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="75.857864376,100">
+                            <PolyLineSegment Points="82.928932188,92.928932188"/>
+                            <ArcSegment Point="90,80" Size="10,10" RotationAngle="0" IsLargeArc="True"/>
+                            <PolyLineSegment Points=" 90,80 90,85 70,75 90,65 90,70"/>
+                            <ArcSegment Point="75.857864376,100" Size="20,20" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="RLshadow" Stroke="#FF0F2322" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="75.857864376,100">
+                            <PolyLineSegment Points="82.928932188,92.928932188"/>
+                            <ArcSegment Point="90,80" Size="10,10" RotationAngle="0" IsLargeArc="True"/>
+                            <PolyLineSegment Points=" 90,80 90,85 70,75 90,65 90,70"/>
+                            <ArcSegment Point="75.857864376,100" Size="20,20" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="Ushadow" Stroke="#FF0F2322" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,45">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,16">
+                            <PolyLineSegment Points="8,0 16,16 12,16 12,32 4,32 4,16 0,16"/>
+                        </PathFigure>
+                        <PathFigure StartPoint="30,16">
+                            <PolyLineSegment Points="38,0 46,16 42,16 42,32 34,32 34,16 30,16"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="Dshadow" Stroke="#FF0F2322" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,45,0,0">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="4,0">
+                            <PolyLineSegment Points="12,0 12,16 16,16 8,32 0,16 4,16 4,0"/>
+                        </PathFigure>
+                        <PathFigure StartPoint="34,0">
+                            <PolyLineSegment Points="42,0 42,16 46,16 38,32 30,16 34,16 34,0"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path x:Name="Forward" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,20">
+                            <PolyLineSegment Points="10,0 20,20 15,20 15,40 5,40 5,20 0,20"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="Backward" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="5,0 ">
+                            <PolyLineSegment Points="15,0 15,20 20,20 10,40 0,20 5,20 5,0 "/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="Right" Stroke="White" StrokeThickness="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,5">
+                            <PolyLineSegment Points="20,5 20,0 40,10 20,20 20,15 0,15 0,5"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="Left" Stroke="White" StrokeThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,10">
+                            <PolyLineSegment Points="20,0 20,5 40,5 40,15 20,15 20,20 0,10"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="ForwardR" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform X="55.355339059" Y="14.644660941"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,20">
+                            <PolyLineSegment Points="10,0 20,20 15,20 15,40 5,40 5,20 0,20"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="ForwardL" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform Y="14.644660941" X="-55.355339059"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,20">
+                            <PolyLineSegment Points="10,0 20,20 15,20 15,40 5,40 5,20 0,20"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="BackwardR" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform X="55.355339059" Y="-14.644660941"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="5,0">
+                            <PolyLineSegment Points="15,0 15,20 20,20 10,40 0,20 5,20 5,0"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="BackwardL" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform X="-55.355339059" Y="-14.644660941"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="5,0">
+                            <PolyLineSegment Points="15,0 15,20 20,20 10,40 0,20 5,20 5,0"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="RotateR" Stroke="White" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="75.857864376,100">
+                            <PolyLineSegment Points="82.928932188,92.928932188"/>
+                            <ArcSegment Point="90,80" Size="10,10" RotationAngle="0" IsLargeArc="True"/>
+                            <PolyLineSegment Points=" 90,80 90,85 70,75 90,65 90,70"/>
+                            <ArcSegment Point="75.857864376,100" Size="20,20" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="RotateL" Stroke="White" StrokeThickness="1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" BlurRadius="5" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="75.857864376,100">
+                            <PolyLineSegment Points="82.928932188,92.928932188"/>
+                            <ArcSegment Point="90,80" Size="10,10" RotationAngle="0" IsLargeArc="True"/>
+                            <PolyLineSegment Points=" 90,80 90,85 70,75 90,65 90,70"/>
+                            <ArcSegment Point="75.857864376,100" Size="20,20" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="Up" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,45">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,16">
+                            <PolyLineSegment Points="8,0 16,16 12,16 12,32 4,32 4,16 0,16"/>
+                        </PathFigure>
+                        <PathFigure StartPoint="30,16">
+                            <PolyLineSegment Points="38,0 46,16 42,16 42,32 34,32 34,16 30,16"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path x:Name="Down" Stroke="White" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,45,0,0">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="4,0">
+                            <PolyLineSegment Points="12,0 12,16 16,16 8,32 0,16 4,16 4,0"/>
+                        </PathFigure>
+                        <PathFigure StartPoint="34,0">
+                            <PolyLineSegment Points="42,0 42,16 46,16 38,32 30,16 34,16 34,0"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+                <Path.Effect>
+                    <DropShadowEffect Color="#FF16E2DE" ShadowDepth="0" Opacity="1"/>
+                </Path.Effect>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF16E2DE" Offset="0"/>
+                        <GradientStop Color="#FF14A3EB" Offset="0.761"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+    </Viewbox>
+</UserControl>

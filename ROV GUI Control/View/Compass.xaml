@@ -1,0 +1,65 @@
+﻿<UserControl x:Name="CompassGauge" x:Class="ROV_GUI_Control.View.Compass"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ROV_GUI_Control.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Width="170" Height="170" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Viewbox Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Ellipse Height="144" Margin="0" StrokeThickness="0" Width="144" Fill="#FF003066" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Ellipse Height="160" Margin="0" StrokeThickness="8.5" Width="160" RenderTransformOrigin="0,0">
+                <Ellipse.Stroke>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF6A6161" Offset="1"/>
+                        <GradientStop Color="#FF060606" Offset="0.917"/>
+                    </RadialGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Height="170" Margin="0" Width="170" StrokeThickness="6" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True">
+                <Ellipse.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF23292C" Offset="0.22"/>
+                        <GradientStop Color="#FF876F24"/>
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Grid x:Name="compassgrid" Width="144" Height="144" Opacity="0.655" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0" x:Name="needle0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Polygon Points="0,0 2,20 4,0" Fill="Lime" Height="20" Margin="0" Width="4" VerticalAlignment="Top">
+                    <Polygon.Effect>
+                        <DropShadowEffect Color="Lime" 
+                          Direction="0" 
+                          ShadowDepth="0" 
+                          BlurRadius="5" />
+                    </Polygon.Effect>
+                </Polygon>
+                <Grid Height="144" Width="144" x:Name="range_container" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"></Grid>
+                    <Polygon Points="18,18 18,11 0,0 18,18 11,18 0,36 18,18 18,25 36,36 18,18 25,18 36,0 18,18 " Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Polygon Points="18,18 11,18 0,0 18,18 18,11 36,0 18,18 25,18 36,36 18,18 18,25 0,36 18,18 " Fill="#FF73B9D3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Ellipse Height="68" Margin="0" Width="68" StrokeThickness="4" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True" Stroke="#FF73B9D3"/>
+                    <Ellipse Height="64" Margin="0" Width="64" StrokeThickness="3" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True" Stroke="#FF000004"/>
+                    <Polygon Points="40,40 47,33 40,0 40,40 33,33 0,40 40,40 33,47 40,80 40,40 47,47 80,40 40,40 " Fill="#FF000004" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Polygon Points="40,40 33,33 40,0 40,40 33,47 0,40 40,40 47,47 40,80 40,40 47,33 80,40 40,40 " Fill="#FF73B9D3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label FontWeight="Bold" Content="N" Foreground="Red" Width="15" Height="15" Padding="0" HorizontalContentAlignment="Center" Margin="0,16,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                    <Label FontWeight="Bold" Content="E" Foreground="White" Width="15" Height="15" Padding="0" Margin="0,0,12,3" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+                    <Label FontWeight="Bold" Content="S" Foreground="White" Width="15" Height="15" Padding="0" Margin="1,0,0,16" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label FontWeight="Bold" Content="W" Foreground="White" Width="15" Height="15" Padding="0" Margin="15,0,0,3" VerticalAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label FontWeight="Bold" Content="NE" Foreground="White" Width="12" Height="12" FontSize="9" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="67,0,0,58"></Label>
+                    <Label FontWeight="Bold" Content="NW" Foreground="White" Width="16" Height="12" FontSize="9" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,67,58"></Label>
+                    <Label FontWeight="Bold" Content="SE" Foreground="White" Width="12" Height="12" FontSize="9" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="67,58,0,0"></Label>
+                    <Label FontWeight="Bold" Content="SW" Foreground="White" Width="16" Height="12" FontSize="9" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,58,67,0"></Label>
+                
+            </Grid>
+            <Ellipse Height="116" Margin="0" Width="116" RenderTransformOrigin="0,0" ScrollViewer.CanContentScroll="True" Stroke="White"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

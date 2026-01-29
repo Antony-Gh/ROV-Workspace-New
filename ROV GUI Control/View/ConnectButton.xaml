@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="ROV_GUI_Control.View.ConnectButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ROV_GUI_Control.View"
+                         mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="ClickAnimation" Completed="ClickAnimation_Completed">
+            <ColorAnimation Storyboard.TargetName="BackgroundBrush"
+                    Storyboard.TargetProperty="Color"
+                    To="Transparent"
+                    Duration="0:0:0.25" />
+            <ColorAnimation Storyboard.TargetName="BackgroundBrush"
+                    Storyboard.TargetProperty="Color"
+                    To="Transparent"
+                    Duration="0:0:0.25"
+                    BeginTime="0:0:0.25" />
+        </Storyboard>
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid Width="60" Height="60">
+            <Ellipse Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" StrokeThickness="6">
+                <Ellipse.Stroke>
+                    <RadialGradientBrush>
+                        <GradientStop Color="White" Offset="0.907"/>
+                        <GradientStop Color="#FF1E2FAC" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.795"/>
+                    </RadialGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Width="56" Height="56" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" StrokeThickness="6">
+                <Ellipse.Stroke>
+                    <RadialGradientBrush Center="0.5,0.505">
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FF8596D6" Offset="0.974"/>
+                        <GradientStop Color="#FF6286E6" Offset="0.701"/>
+                        <GradientStop Color="#FF16E2DE" Offset="0.847"/>
+                    </RadialGradientBrush>
+                </Ellipse.Stroke>
+                <Ellipse.Effect>
+                    <DropShadowEffect Color="Blue" BlurRadius="0" ShadowDepth="0"/>
+                </Ellipse.Effect>
+            </Ellipse>
+
+            <Ellipse x:Name="pressArea" Width="46" Height="46" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#FF001D45" StrokeThickness="3">
+                <Ellipse.Stroke>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF001D45" Offset="0.825"/>
+                        <GradientStop Color="#FF14A3EB" Offset="1"/>
+                        <GradientStop Color="#FF16E2DE" Offset="0.963"/>
+                        <GradientStop Color="#FF3733BD" Offset="0.929"/>
+                        <GradientStop Color="#FF0D2478" Offset="0.903"/>
+                        <GradientStop Color="White" Offset="0.959"/>
+                    </RadialGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            
+                <Path x:Name="part1" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+              Data="M 17.97918472,17.97918472 A 17,17 0 0 1 42.020815280,17.97918472" Margin="0,5,0,0" RenderTransformOrigin="0.5,0.5">
+                   
+                    <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                        <GradientStop Color="White" Offset="0.151"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.69"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                    </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+                <Path x:Name="part2" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+  Data="M 21.514718626,21.514718626 A 12,12 0 0 1 38.485281374,21.514718626" Margin="0,5,0,0">
+                    <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                            <GradientStop Color="White" Offset="0.111"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.69"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                        </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+                <Path x:Name="part3" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+  Data="M 25.050252532,25.050252532 A 7,7 0 0 1 34.949747468,25.050252532" Margin="0,5,0,0">
+                    <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                            <GradientStop Color="White" Offset="0.078"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.69"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                        </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+                <Path x:Name="part4" StrokeThickness="6" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+  Data="M 30,30 A 2,2 0 0 1 30,30" Margin="0,5,0,0">
+                    <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.78"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                        </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+            <Path x:Name="part5" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+Data="M 9,30 A 21,21 0 1 0 9,29.9" RenderTransformOrigin="0.5,0.5">
+                <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.69"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                        </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+
+                <Path x:Name="part6" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+Data="M 30,36 A 0,0 0 0 1 30,40" Margin="0,5,0,0" RenderTransformOrigin="0.5,0.5">
+
+                    <Path.Stroke>
+                        <RadialGradientBrush Center="0.5,0.43">
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.78"/>
+                        <GradientStop Color="{Binding color, RelativeSource={RelativeSource AncestorType=UserControl}}" Offset="0.899"/>
+                        </RadialGradientBrush>
+                    </Path.Stroke>
+                    <Path.Effect>
+                    <DropShadowEffect Color="{Binding scolor, RelativeSource={RelativeSource AncestorType=UserControl}}" BlurRadius="5" ShadowDepth="0"/>
+                    </Path.Effect>
+                </Path>
+
+            <Border x:Name="BorderElement" CornerRadius="30" BorderBrush="Gray" BorderThickness="1" MouseEnter="MouseENTER" MouseLeave="MouseLEAVE" MouseLeftButtonDown="MouseLeftButtonDOWN" MouseLeftButtonUp="MouseLeftButtonUP" Width="46" Height="46">
+                <Border.Background>
+                    <SolidColorBrush x:Name="BackgroundBrush" Color="Transparent"/>
+                </Border.Background>
+            </Border>
+        </Grid>
+    </Viewbox>
+</UserControl>
