@@ -244,6 +244,7 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void UpdateStatus(string message)
         {
+            await _semaphore.WaitAsync();
             await App.Current.Dispatcher.InvokeAsync(() =>
             { 
             try
@@ -984,11 +985,15 @@ namespace ROV_GUI_Control.ViewModels
                     _ledLightness = value;
                     OnPropertyChanged(nameof(LedLightness));
                 }
-            }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        /* Note: PropertyChanged event and OnPropertyChanged are inherited from ObservableObject */
+
+        // public event PropertyChangedEventHandler PropertyChanged;
+        // protected void OnPropertyChanged([CallerMemberName] string name = null) =>
+        //     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+        
         public void Dispose()
         {
             Feed1?.Dispose();

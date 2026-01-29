@@ -40,7 +40,7 @@ void Motor_CalibrateESC(uint8_t motor_id) {
                           GetTimChannel(motors[motor_id].channel), PWM_NEUTRAL);
     motors[motor_id].enabled = 1;
   }
-  HAL_Delay(10000);
+  osDelay(10000); /* Use osDelay instead of HAL_Delay for FreeRTOS compatibility */
   IsCalibratedESC = true;
 }
 
@@ -64,6 +64,10 @@ void Motor_Enable(uint8_t motor_id) {
 }
 
 void Motor_SetSpeed(uint8_t motor_id, int16_t speed) {
+  if (motor_id >= MAX_MOTORS)
+    return; /* Bounds check */
+  if (motors[motor_id].htim == NULL)
+    return; /* NULL check */
   if (thrusters_enabled) {
     __HAL_TIM_SET_COMPARE(motors[motor_id].htim,
                           GetTimChannel(motors[motor_id].channel), speed);
@@ -168,7 +172,7 @@ void Motor_HandleFault(uint8_t motor_id) {
 }
 void Move_Update(float Fx, float Fy, float Fz, float Mz) {
   u_zero(u, 6);
-  if (abs(Fz) >= 0) {
+  if (fabsf(Fz) >= 0) { /* Use fabsf for float */
     u[2] = Fz;
     int ok = Allocate_And_Map(A, u, lambda, maps, 5, T, PWM);
     if (!ok) {

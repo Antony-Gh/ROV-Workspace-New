@@ -362,12 +362,12 @@ void Motor_SetSpeed(uint8_t motor_id, int16_t speed)
 
 ### 📁 5.1 Missing Files
 
-| File | Expected Location | Purpose |
-|------|------------------|---------|
-| `main.py` | `/home/rov/main.py` (RPi) | Camera streaming master script |
-| `requirements.txt` | Root directory | Python dependencies |
-| `.gitignore` | Root directory | Version control excludes |
-| `README.md` | Root directory | Project documentation |
+| File               | Expected Location         | Purpose                        |
+| ------------------ | ------------------------- | ------------------------------ |
+| `main.py`          | `/home/rov/main.py` (RPi) | Camera streaming master script |
+| `requirements.txt` | Root directory            | Python dependencies            |
+| `.gitignore`       | Root directory            | Version control excludes       |
+| `README.md`        | Root directory            | Project documentation          |
 
 ---
 
@@ -382,11 +382,11 @@ void Motor_SetSpeed(uint8_t motor_id, int16_t speed)
 
 ## 6. Dependency Vulnerabilities
 
-| Package | Current | Risk | Notes |
-|---------|---------|------|-------|
+| Package             | Current   | Risk   | Notes                                    |
+| ------------------- | --------- | ------ | ---------------------------------------- |
 | `Core.Renci.SshNet` | 2021.10.2 | Medium | Old fork, use official `SSH.NET` instead |
-| `Newtonsoft.Json` | 13.0.3 | Low | Update to latest for security patches |
-| `SharpDX` | 4.2.0 | Low | Deprecated, consider XInput wrapper |
+| `Newtonsoft.Json`   | 13.0.3    | Low    | Update to latest for security patches    |
+| `SharpDX`           | 4.2.0     | Low    | Deprecated, consider XInput wrapper      |
 
 ---
 
@@ -435,18 +435,18 @@ Create test project targeting critical logic:
 
 ## Summary of Required Actions
 
-| Priority | Issue | Component | Effort |
-|----------|-------|-----------|--------|
-| 🔴 Critical | Uncomment UDP send | GUI | 5 min |
-| 🔴 Critical | Fix semaphore usage | GUI | 10 min |
-| 🔴 Critical | Move init before osKernelStart | Firmware | 30 min |
-| 🔴 Critical | Uncomment main loop code | Firmware | 10 min |
-| 🟠 High | Externalize credentials | GUI | 2 hrs |
-| 🟠 High | Fix UDP reassembly | GUI | 4 hrs |
-| 🟡 Medium | Add division by zero check | GUI | 10 min |
-| 🟡 Medium | Rate limit UI updates | GUI | 1 hr |
-| 🔵 Low | Remove duplicate interface | GUI | 5 min |
-| 🔵 Low | Add null checks | Firmware | 1 hr |
+| Priority   | Issue                          | Component | Effort |
+| ---------- | ------------------------------ | --------- | ------ |
+| 🔴 Critical | Uncomment UDP send             | GUI       | 5 min  |
+| 🔴 Critical | Fix semaphore usage            | GUI       | 10 min |
+| 🔴 Critical | Move init before osKernelStart | Firmware  | 30 min |
+| 🔴 Critical | Uncomment main loop code       | Firmware  | 10 min |
+| 🟠 High     | Externalize credentials        | GUI       | 2 hrs  |
+| 🟠 High     | Fix UDP reassembly             | GUI       | 4 hrs  |
+| 🟡 Medium   | Add division by zero check     | GUI       | 10 min |
+| 🟡 Medium   | Rate limit UI updates          | GUI       | 1 hr   |
+| 🔵 Low      | Remove duplicate interface     | GUI       | 5 min  |
+| 🔵 Low      | Add null checks                | Firmware  | 1 hr   |
 
 ---
 

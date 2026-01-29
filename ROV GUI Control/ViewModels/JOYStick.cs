@@ -201,7 +201,13 @@ namespace ROV_GUI_Control.ViewModels
             int yn = (int)RoundAwayFromZero(y) + 1;
             int zn = (int)RoundAwayFromZero(z) + 1;
             MoveID = BasicMov[xn, yn, zn];
-            int speed = (int)(312*(Math.Abs(x) + Math.Abs(y) + Math.Abs(z)) /(Math.Abs(xn-1) + Math.Abs(yn-1) + Math.Abs(zn-1)));
+            // int speed = (int)(312*(Math.Abs(x) + Math.Abs(y) + Math.Abs(z)) /(Math.Abs(xn-1) + Math.Abs(yn-1) + Math.Abs(zn-1)));
+
+            int denominator = Math.Abs(xn - 1) + Math.Abs(yn - 1) + Math.Abs(zn - 1);
+            int speed = denominator > 0
+                ? (int)(312 * (Math.Abs(x) + Math.Abs(y) + Math.Abs(z)) / denominator)
+                : 0;
+            
             Task.Run(async () =>
             {
                 if (prevdir == BasicMov[xn, yn, zn])

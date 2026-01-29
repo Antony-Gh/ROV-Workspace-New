@@ -111,8 +111,11 @@ namespace ROV_GUI_Control.ViewModels
         {
             await Task.Run(async () =>
             {
-                bool one =await ConnectionCheck();
-                //UDPClient.Send(packet, packet.Length, RemoteEP);
+                bool connected = await ConnectionCheck();
+                if (connected)
+                {
+                    UDPClient.Send(packet, packet.Length, RemoteEP);
+                }
             });
         }
 
