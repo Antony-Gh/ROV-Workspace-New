@@ -51,24 +51,33 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void ExecuteConnectCommand()
         {
-            if (!IsConnect)
+            try
             {
-                IsConnect = await MavlinkHandler.ConnectionCheck();
                 if (!IsConnect)
                 {
-                    MessageBox.Show($"Connect to {Host_IP} faild !");
+                    IsConnect = await MavlinkHandler.ConnectionCheck();
+                    if (!IsConnect)
+                    {
+                        MessageBox.Show($"Connect to {Host_IP} faild !");
+                    }
+                }
+                else
+                {
+                    using var ssh = new SshClient(Host_IP, UserName, Password);
+                    ssh.Connect();
+                    // ssh.RunCommand("pkill -f bridge.py"); /* Old Version */
+                    ssh.RunCommand("pkill -f main.py");
+                    ssh.Disconnect();
+                    IsConnect = false;
+                    IsPower = false;
+                    IsEnable = false;
+                    IsStream = false;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                using var ssh = new SshClient(Host_IP, UserName, Password);
-                ssh.Connect();
-                ssh.RunCommand("pkill -f bridge.py");
-                ssh.Disconnect();
-                IsConnect = false;
-                IsPower = false;
-                IsEnable = false;
-                IsStream = false;
+                 MessageBox.Show($"Connection error: {ex.Message}");
+                 IsConnect = false;
             }
         }
         #endregion
@@ -275,8 +284,16 @@ namespace ROV_GUI_Control.ViewModels
             }
         }, DispatcherPriority.Background);
         }
+        private DateTime _lastGaugeUpdate = DateTime.MinValue;
+        private DateTime _lastAttitudeUpdate = DateTime.MinValue;
+        private DateTime _lastWaterUpdate = DateTime.MinValue;
+        private const int UpdateIntervalMs = 33; // ~30Hz
+
         private async void UpdateGauges(mavlink_vfr_hud_t vfrHud)
         {
+            if ((DateTime.Now - _lastGaugeUpdate).TotalMilliseconds < UpdateIntervalMs) return;
+            _lastGaugeUpdate = DateTime.Now;
+
             await App.Current.Dispatcher.InvokeAsync(() =>
             {
                 Speed = vfrHud.groundspeed;
@@ -286,6 +303,9 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void UpdateAttitude(mavlink_attitude_t attitude)
         {
+            if ((DateTime.Now - _lastAttitudeUpdate).TotalMilliseconds < UpdateIntervalMs) return;
+            _lastAttitudeUpdate = DateTime.Now;
+
             await App.Current.Dispatcher.InvokeAsync(() =>
             {
                 Roll = attitude.roll;
@@ -295,6 +315,9 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void UpdateWaterEnv(mavlink_scaled_pressure_t pres_temp_w)
         {
+            if ((DateTime.Now - _lastWaterUpdate).TotalMilliseconds < UpdateIntervalMs) return;
+            _lastWaterUpdate = DateTime.Now;
+
             await App.Current.Dispatcher.InvokeAsync(() =>
             {
                 Water_Temp = pres_temp_w.temperature;
@@ -693,17 +716,24 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void ExecutePowerCommand()
         {
-            await Task.Run(() =>
+            try
             {
-                if (!IsConnect)
+                await Task.Run(() =>
                 {
-                    MessageBox.Show("No Connection !");
-                }
-                else
-                {
-                    IsPower = !IsPower;
-                }
-            });
+                    if (!IsConnect)
+                    {
+                        MessageBox.Show("No Connection !");
+                    }
+                    else
+                    {
+                        IsPower = !IsPower;
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing power command: {ex.Message}");
+            }
         }
         #endregion
         #region Enable/Disable
@@ -725,18 +755,25 @@ namespace ROV_GUI_Control.ViewModels
         }
         private async void ExecuteEnableCommand()
         {
-            await Task.Run(() =>
+            try
             {
-                if (!IsConnect)
-                    MessageBox.Show("No Connection !");
-                else
+                await Task.Run(() =>
                 {
-                    if (IsPower)
-                        IsEnable = !IsEnable;
+                    if (!IsConnect)
+                        MessageBox.Show("No Connection !");
                     else
-                        MessageBox.Show("Power is OFF.");
-                }
-            });
+                    {
+                        if (IsPower)
+                            IsEnable = !IsEnable;
+                        else
+                            MessageBox.Show("Power is OFF.");
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing enable command: {ex.Message}");
+            }
         }
         #endregion
         #region Settings

@@ -57,22 +57,64 @@ namespace ROV_GUI_Control.ViewModels
             UDPReceiver = new UdpClient(Port);
             try
             {
+                MemoryStream frameBuffer = new MemoryStream();
                 while (!token.IsCancellationRequested)
                 {
                     var result = await UDPReceiver.ReceiveAsync();
-                    
-                    await Application.Current.Dispatcher.BeginInvoke(() =>
-                    {
-                        using var ms = new MemoryStream(result.Buffer);
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmapImage.StreamSource = ms;
-                        bitmapImage.EndInit();
-                        bitmapImage.Freeze();
+                    var data = result.Buffer;
+                    if (data.Length < 1) continue;
 
-                        Image = bitmapImage;
-                    });
+                    byte flag = data[0];
+                    // Protocol: 0=Middle, 1=Start, 2=End, 3=Single(RAM)
+                    
+                    if (flag == 1) // Start of Frame
+                    {
+                        frameBuffer.SetLength(0);
+                        frameBuffer.Write(data, 1, data.Length - 1);
+                    }
+                    else if (flag == 0) // Middle Chunk
+                    {
+                        frameBuffer.Write(data, 1, data.Length - 1);
+                    }
+                    else if (flag == 2) // End of Frame
+                    {
+                        frameBuffer.Write(data, 1, data.Length - 1);
+                        var frameData = frameBuffer.ToArray();
+                        
+                        await Application.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            try 
+                            { 
+                                using var ms = new MemoryStream(frameData);
+                                var bitmapImage = new BitmapImage();
+                                bitmapImage.BeginInit();
+                                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmapImage.StreamSource = ms;
+                                bitmapImage.EndInit();
+                                bitmapImage.Freeze();
+                                Image = bitmapImage;
+                            }
+                            catch (Exception) { /* Handle invalid bitmaps slightly gracefully */ }
+                        });
+                    }
+                    else if (flag == 3) // Single Packet Frame
+                    {
+                        await Application.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            try
+                            {
+                                using var ms = new MemoryStream(data, 1, data.Length - 1);
+                                var bitmapImage = new BitmapImage();
+                                bitmapImage.BeginInit();
+                                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmapImage.StreamSource = ms;
+                                bitmapImage.EndInit();
+                                bitmapImage.Freeze();
+                                Image = bitmapImage;
+                            }
+                            catch (Exception) { }
+                        });
+                    }
                 }
             }
             catch (ObjectDisposedException)// UDP has been disposed
