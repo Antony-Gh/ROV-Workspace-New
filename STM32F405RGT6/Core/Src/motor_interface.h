@@ -7,7 +7,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-
 #define MAX_MOTORS 6
 #define PWM_MAX 20000
 #define MOTOR_SPEED_MIN 0
