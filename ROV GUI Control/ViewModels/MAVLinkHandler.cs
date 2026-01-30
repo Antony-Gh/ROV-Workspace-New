@@ -21,6 +21,9 @@ namespace ROV_GUI_Control.ViewModels
         public event Action<mavlink_attitude_t> UpdateAttitude;
         public event Action<mavlink_scaled_pressure_t> UpdateWaterEnv;
         public event Action<mavlink_scaled_pressure2_t> UpdateTubeEnv;
+        public event Action<IPEndPoint> OnRemoteEndPointUpdated;
+
+        private IPEndPoint LastReceivedEndPoint;
 
         public MAVLinkHandler(string ip, int  port)
         {
@@ -37,14 +40,22 @@ namespace ROV_GUI_Control.ViewModels
                 IPEndPoint remoteEndPoint = new(IPAddress.Any, Port);
                 byte[] receivedBytes = UDPClient.EndReceive(ar, ref remoteEndPoint);
 
+                if (LastReceivedEndPoint == null || !LastReceivedEndPoint.Equals(remoteEndPoint))
+                {
+                    LastReceivedEndPoint = remoteEndPoint;
+                    // Dispatch to UI thread if needed, or just invoke
+                    OnRemoteEndPointUpdated?.Invoke(LastReceivedEndPoint);
+                }
+
                 foreach (var b in receivedBytes)
                 {
                     var packet = mavlinkParser.ReadByte(b);
+
                     _ = MessageProcessing(packet);
                 }
                 UDPClient.BeginReceive(ReceiveCallback, null);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                // Dispatcher.Invoke(() => LogTextBox.AppendText($"Error: {ex.Message}\n"));
             }
@@ -114,7 +125,7 @@ namespace ROV_GUI_Control.ViewModels
                 bool connected = await ConnectionCheck();
                 if (connected)
                 {
-                    UDPClient.Send(packet, packet.Length, RemoteEP);
+                    UDPClient.Send(packet, packet.Length, LastReceivedEndPoint ?? RemoteEP);
                 }
             });
         }

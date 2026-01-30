@@ -254,7 +254,6 @@ namespace ROV_GUI_Control.View
                 OnPropertyChanged(nameof(SampleText));
             }
         }
-        private ModelVisual3D CatchedSample;
         private int LineCount = 0;
         private Point3D PrevSample = new(0, 0 ,0);
         private double X_bound;
@@ -262,7 +261,6 @@ namespace ROV_GUI_Control.View
         private double Z_bound;
         private readonly Queue<Point3D> TrackPoints = new();
         private readonly HashSet<string> Points = [];
-        private readonly Queue<Point3D> SamplesPoints = new();
 
         private readonly List<LinesVisual3D> lineList = [];
         private bool AutoMoving = false;
@@ -320,7 +318,6 @@ namespace ROV_GUI_Control.View
             AlgaeType2(new Point3D(6500, 2000, 18), new Vector3D(0, 0, 0), 0);
             AlgaeType3(new Point3D(7000, 2000, 18), new Vector3D(0, 0, 0), 0);
             task2();
-            CatchedSample = null;
             task3();
         }
         private void AddPool()

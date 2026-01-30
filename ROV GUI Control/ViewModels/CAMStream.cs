@@ -121,6 +121,10 @@ namespace ROV_GUI_Control.ViewModels
             {
                
             }
+            catch (TaskCanceledException)
+            {
+                // Task was canceled, ignore
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in ReceiveAsync: {ex.Message}");

@@ -53,6 +53,12 @@ namespace ROV_GUI_Control.ViewModels
                 OnPropertyChanged(nameof(AddMark));
             }
         }
+        public void UpdateTarget(IPEndPoint ep)
+        {
+            IPEP = ep;
+            Console.WriteLine($"Joystick Target Updated: {ep}");
+        }
+
         public JOYStick(string ip, int port)
         {
             IP = ip;
@@ -236,18 +242,27 @@ namespace ROV_GUI_Control.ViewModels
         }
         private void SendManualControl(int t, float s)
         {
-            var command = new mavlink_manual_control_t
+            try
             {
-                target = 1,
-                x = 0,
-                y = 0,
-                z = 0,
-                s = (short)s,
-                r = (short)t,
-                buttons = 0
-            };
-            var packet = mavlinkParser.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, command, false, systemId, componentId);
-            UDPClient.Send(packet, packet.Length, IPEP);
+                if (UDPClient == null) return;
+
+                var command = new mavlink_manual_control_t
+                {
+                    target = 1,
+                    x = 0,
+                    y = 0,
+                    z = 0,
+                    s = (short)s,
+                    r = (short)t,
+                    buttons = 0
+                };
+                var packet = mavlinkParser.GenerateMAVLinkPacket20(MAVLink.MAVLINK_MSG_ID.MANUAL_CONTROL, command, false, systemId, componentId);
+                UDPClient.Send(packet, packet.Length, IPEP);
+            }
+            catch (Exception)
+            {
+                // Ignore errors during shutdown or if UDP client is disposed
+            }
         }
         public void Stop()
         {

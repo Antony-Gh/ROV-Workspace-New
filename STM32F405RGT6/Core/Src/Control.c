@@ -28,6 +28,8 @@ void IMUTask(void *argument) {
       UpdateAttitude(imudata.roll, imudata.pitch, imudata.yaw);
       xSemaphoreGive(IMUMutex);
     }
+    MavlinkTx_Process();
+
     vTaskDelay(pdMS_TO_TICKS(20));
   }
 }

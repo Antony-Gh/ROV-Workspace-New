@@ -17,6 +17,7 @@
         <converters:LEDButtonConverter x:Key="LEDButtonConverter"/>
         <converters:LEDLightnessConverter x:Key="LEDLightnessConverter"/>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:FloatConverter x:Key="FloatConverter"/>
 
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Style.Triggers>
@@ -205,10 +206,10 @@
                                     <Label Content="Grid Size" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="60" FontSize="9" Margin="0,2,0,0" FontFamily="Arial" Foreground="White"/>
                                 </StackPanel>
                                 <StackPanel Width="105" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_width, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_length, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_height, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=GridSize, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_width, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_length, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Pool_height, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=GridSize, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
                                 </StackPanel>
                             </DockPanel>
                             <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="20" Grid.Row="0" Content="Set" Command="{Binding ElementName=ROV3D, Path=Run}" Margin="0,0,0,5">
@@ -254,10 +255,10 @@
                                     <Label Content="Speed" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="60" FontSize="9" Margin="0,2,0,0" FontFamily="Arial" Foreground="White"/>
                                 </StackPanel>
                                 <StackPanel Width="105" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=X_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Y_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Z_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Speed, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=X_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Y_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Z_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Speed, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
                                 </StackPanel>
                             </DockPanel>
                             <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="20" Grid.Row="0" Content="Move" Command="{Binding ElementName=ROV3D, Path=Add}" Margin="0,0,0,5">
@@ -279,10 +280,10 @@
                                     <Label Content="Speed" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="60" FontSize="9" Margin="0,2,0,0" FontFamily="Arial" Foreground="White"/>
                                 </StackPanel>
                                 <StackPanel Width="105" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=X_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Y_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Z_Axis, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
-                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Speed, UpdateSourceTrigger=PropertyChanged}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=X_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Y_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Z_Axis, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
+                                    <TextBox Text="{Binding ElementName=ROV3D, Path=Speed, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0" TextAlignment="Center"></TextBox>
                                 </StackPanel>
                             </DockPanel>
                             <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="50" Height="20" Grid.Row="0" Content="Add" Command="{Binding ElementName=ROV3D, Path=Add}" Margin="0,0,0,5">

@@ -16,7 +16,6 @@ namespace ROV_GUI_Control.ViewModels
         private readonly Transform3DGroup transformGroup;
 
         private Model3D _model;
-        private bool _isRotating;
 
         private ModelVisual3D _modelVisual;
         public ModelVisual3D ModelVisual
@@ -43,7 +42,6 @@ namespace ROV_GUI_Control.ViewModels
 
             // Start rotation render loop
             CompositionTarget.Rendering += OnRendering;
-            _isRotating = true;
         }
 
         private async Task LoadModelAsync()
@@ -103,8 +101,7 @@ namespace ROV_GUI_Control.ViewModels
                 rotation.Angle = 0;*/
         }
 
-        public void StartRotation() => _isRotating = true;
-        public void StopRotation() => _isRotating = false;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>

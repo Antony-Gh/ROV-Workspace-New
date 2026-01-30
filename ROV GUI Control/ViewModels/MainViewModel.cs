@@ -961,6 +961,7 @@ namespace ROV_GUI_Control.ViewModels
             MavlinkHandler.UpdateAttitude += UpdateAttitude;
             MavlinkHandler.UpdateWaterEnv += UpdateWaterEnv;
             MavlinkHandler.UpdateTubeEnv += UpdateTubeEnv;
+            MavlinkHandler.OnRemoteEndPointUpdated += (ep) => JOYSICK.UpdateTarget(ep);
 
             _timer = new DispatcherTimer
             {
