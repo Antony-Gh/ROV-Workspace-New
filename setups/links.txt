@@ -22,3 +22,7 @@ https://github.com/renode/renode
 
 STM32CubeProgrammer			Flash programming 
 https://www.st.com/en/development-tools/stm32cubeprog.html
+
+
+Visual Studio 2022 Professional License Key:
+TD244-P4NB7-YQ6XK-Y8MMM-YWV2J
