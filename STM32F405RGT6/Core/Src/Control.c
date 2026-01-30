@@ -21,7 +21,7 @@ PID depth_pi = {.Kp = 2.0f,
                 .anti_windup_beta = 0.5f};
 
 void IMUTask(void *argument) {
-  for (;;) {
+  TASK_LOOP {
     IMUData read = MPU6050_Update(0.02f);
     if (xSemaphoreTake(IMUMutex, portMAX_DELAY)) {
       imudata = read;
@@ -34,7 +34,7 @@ void IMUTask(void *argument) {
   }
 }
 void TPDTask(void *argument) {
-  for (;;) {
+  TASK_LOOP {
     TPDData read = MS5540_Update(0.02f);
     if (xSemaphoreTake(TPDMutex, portMAX_DELAY)) {
       tpddata = read;
@@ -45,7 +45,7 @@ void TPDTask(void *argument) {
   }
 }
 void PIDTask(void *argument) {
-  for (;;) {
+  TASK_LOOP {
     if (xSemaphoreTake(TPDMutex, portMAX_DELAY)) {
       error1 =
           (tpddata.depth - 50 * sin(imudata.pitch * M_PI / 180.0)) - depthSP;

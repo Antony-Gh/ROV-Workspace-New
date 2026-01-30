@@ -2,10 +2,12 @@
 #define MOTOR_INTERFACE_H
 
 #include "Mapping.h"
+#include "cmsis_os.h"
 #include "stm32f4xx.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+
 
 #define MAX_MOTORS 6
 #define PWM_MAX 20000
