@@ -29,6 +29,13 @@ ROV Workspace is a multi-component robotics control system developed by the **As
 
 ## ✨ Features
 
+### 🆕 Recent Updates (Jan 2026)
+- **GUI**: Fixed `System.FormatException` crashes with new `FloatConverter` for safe empty string binding.
+- **GUI**: Resolved "Joystick not found!" errors and startup race conditions.
+- **Firmware**: Enabled MAVLink UDP sending (previously commented out).
+- **Firmware**: Fixed semaphore deadlocks using `WaitAsync`.
+- **Firmware**: Corrected initialization order (moved before `osKernelStart`) to prevent hard faults.
+
 ### WPF GUI Control Application
 - **Real-time Camera Feeds** - Support for up to 3 simultaneous camera streams
 - **3D ROV Visualization** - Interactive 3D model showing vehicle orientation
@@ -55,21 +62,21 @@ ROV Workspace is a multi-component robotics control system developed by the **As
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        WINDOWS PC                                    │
+│                        WINDOWS PC                                   │
 │  ┌─────────────────────────────────────────────────────────────┐    │
-│  │                 WPF GUI Control Application                  │    │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐   │    │
-│  │  │ Camera   │ │ Joystick │ │ Telemetry│ │ 3D Model     │   │    │
-│  │  │ Viewers  │ │ Handler  │ │ Display  │ │ Visualization│   │    │
-│  │  └────┬─────┘ └────┬─────┘ └────┬─────┘ └──────────────┘   │    │
-│  └───────┼────────────┼────────────┼──────────────────────────┘    │
+│  │                 WPF GUI Control Application                 │    │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐    │    │
+│  │  │ Camera   │ │ Joystick │ │ Telemetry│ │ 3D Model     │    │    │
+│  │  │ Viewers  │ │ Handler  │ │ Display  │ │ Visualization│    │    │
+│  │  └────┬─────┘ └────┬─────┘ └────┬─────┘ └──────────────┘    │    │
+│  └───────┼────────────┼────────────┼───────────────────────────┘    │
 │          │            │            │                                │
 └──────────┼────────────┼────────────┼────────────────────────────────┘
            │ HTTP       │ UDP        │ UDP
            │ 5000-7000  │ 14550      │ 14550
            ▼            ▼            ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│                        RASPBERRY PI                                   │
+│                        RASPBERRY PI                                  │
 │  ┌──────────────┐                  ┌─────────────────────────────┐   │
 │  │  stream.py   │                  │     bridge.py               │   │
 │  │  (Flask)     │                  │   UART ↔ UDP Bridge         │   │
@@ -79,12 +86,12 @@ ROV Workspace is a multi-component robotics control system developed by the **As
 └───────────────────────────────────────────────────┼──────────────────┘
                                                     ▼
 ┌──────────────────────────────────────────────────────────────────────┐
-│                        STM32F405RGT6                                  │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌────────────┐  │
-│  │   MAVLink   │  │   Motor     │  │    PID      │  │  Sensors   │  │
-│  │   Parser    │──│  Interface  │──│ Controller  │──│ IMU/Press  │  │
-│  │   (DMA)     │  │  (6x PWM)   │  │             │  │            │  │
-│  └─────────────┘  └─────────────┘  └─────────────┘  └────────────┘  │
+│                        STM32F405RGT6                                 │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌────────────┐   │
+│  │   MAVLink   │  │   Motor     │  │    PID      │  │  Sensors   │   │
+│  │   Parser    │──│  Interface  │──│ Controller  │──│ IMU/Press  │   │
+│  │   (DMA)     │  │  (6x PWM)   │  │             │  │            │   │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └────────────┘   │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -124,24 +131,24 @@ ROV Workspace/
 ## 🔧 Prerequisites
 
 ### Windows Development Machine
-| Requirement | Version |
-|-------------|---------|
-| Visual Studio | 2022 (17.0+) |
-| .NET Framework | 4.7.2 |
+| Requirement          | Version        |
+| -------------------- | -------------- |
+| Visual Studio        | 2022 (17.0+)   |
+| .NET Framework       | 4.7.2          |
 | DirectInput Joystick | Any compatible |
 
 ### Raspberry Pi
-| Requirement | Version |
-|-------------|---------|
-| Raspberry Pi | 4B/5 (2GB+ RAM) |
+| Requirement     | Version         |
+| --------------- | --------------- |
+| Raspberry Pi    | 4B/5 (2GB+ RAM) |
 | Raspberry Pi OS | Bookworm 64-bit |
-| Python | 3.9+ |
+| Python          | 3.9+            |
 
 ### STM32 Development
-| Requirement | Version |
-|-------------|---------|
-| STM32CubeIDE | 1.13+ |
-| ST-Link | V2 or V3 |
+| Requirement  | Version  |
+| ------------ | -------- |
+| STM32CubeIDE | 1.13+    |
+| ST-Link      | V2 or V3 |
 
 ---
 
@@ -245,10 +252,10 @@ udp_target_ip = '192.168.0.132' # Windows PC IP
 
 ## 📚 Documentation
 
-| Document | Description |
-|----------|-------------|
-| [documentation.md](documentations/documentation.md) | Full installation & setup guide |
-| [technical_audit_report.md](documentations/technical_audit_report.md) | Code audit & known issues |
+| Document                                                              | Description                     |
+| --------------------------------------------------------------------- | ------------------------------- |
+| [documentation.md](documentations/documentation.md)                   | Full installation & setup guide |
+| [technical_audit_report.md](documentations/technical_audit_report.md) | Code audit & known issues       |
 
 ---
 
@@ -256,13 +263,13 @@ udp_target_ip = '192.168.0.132' # Windows PC IP
 
 ### STM32F405RGT6
 
-| Peripheral | Pins | Function |
-|------------|------|----------|
-| USART2 | PA2/PA3 | MAVLink UART |
-| TIM1 CH1-4 | PA8-PA11 | Motors 0-3 PWM |
-| TIM8 CH1-3 | PC6-PC8 | Motors 4-5 PWM |
-| I2C1 | PB6/PB7 | MPU6050 IMU |
-| SPI1 | PA5-PA7 | Pressure Sensor |
+| Peripheral | Pins     | Function        |
+| ---------- | -------- | --------------- |
+| USART2     | PA2/PA3  | MAVLink UART    |
+| TIM1 CH1-4 | PA8-PA11 | Motors 0-3 PWM  |
+| TIM8 CH1-3 | PC6-PC8  | Motors 4-5 PWM  |
+| I2C1       | PB6/PB7  | MPU6050 IMU     |
+| SPI1       | PA5-PA7  | Pressure Sensor |
 
 ---
 
@@ -270,14 +277,14 @@ udp_target_ip = '192.168.0.132' # Windows PC IP
 
 ### WPF GUI (NuGet Packages)
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| CommunityToolkit.Mvvm | 8.4.0 | MVVM framework |
-| HelixToolkit.Wpf | 2.27.0 | 3D visualization |
-| OxyPlot.Wpf | 2.2.0 | Charts/graphs |
-| SharpDX.DirectInput | 4.2.0 | Joystick input |
-| Renci.SshNet | 2021.10.2 | SSH communication |
-| Newtonsoft.Json | 13.0.3 | JSON serialization |
+| Package               | Version   | Purpose            |
+| --------------------- | --------- | ------------------ |
+| CommunityToolkit.Mvvm | 8.4.0     | MVVM framework     |
+| HelixToolkit.Wpf      | 2.27.0    | 3D visualization   |
+| OxyPlot.Wpf           | 2.2.0     | Charts/graphs      |
+| SharpDX.DirectInput   | 4.2.0     | Joystick input     |
+| Renci.SshNet          | 2021.10.2 | SSH communication  |
+| Newtonsoft.Json       | 13.0.3    | JSON serialization |
 
 ### Python
 
@@ -293,11 +300,11 @@ opencv-python
 
 See [Technical Audit Report](documentations/technical_audit_report.md) for detailed findings.
 
-| Issue | Severity | Status |
-|-------|----------|--------|
-| UDP Send commented out | Critical | Pending |
-| Semaphore not acquired | Critical | Pending |
-| Firmware init after osKernelStart | Critical | Pending |
+| Issue                             | Severity | Status    |
+| --------------------------------- | -------- | --------- |
+| UDP Send commented out            | Critical | **Fixed** |
+| Semaphore not acquired            | Critical | **Fixed** |
+| Firmware init after osKernelStart | Critical | **Fixed** |
 
 ---
 
